@@ -35,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 40),
@@ -49,6 +50,59 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(
                 height: 32,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      border: Border.fromBorderSide(
+                          BorderSide(color: AppTheme.colors.border))),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 57,
+                        height: 57,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 16,
+                            ),
+                            Image.asset("assets/images/google.png"),
+                            SizedBox(
+                              width: 16,
+                            ),
+                            Container(
+                              width: 1,
+                              color: AppTheme.colors.border,
+                            )
+                          ],
+                        ),
+                      ),
+                      Expanded(child: Container()),
+                      Text("Entrar com Google",
+                          style: GoogleFonts.inter(
+                              color: AppTheme.colors.button,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400)),
+                      Expanded(child: Container()),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: ListTile(
+                  leading: Image.asset("assets/images/google.png"),
+                  title: Center(
+                    child: Text("Entrar com Google",
+                        style: GoogleFonts.inter(
+                            color: AppTheme.colors.button,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400)),
+                  ),
+                ),
               ),
               ElevatedButton.icon(
                   style: ButtonStyle(
