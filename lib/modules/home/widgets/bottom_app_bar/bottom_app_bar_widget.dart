@@ -46,7 +46,7 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
       case AppBarStateFailure:
         {
           final message = (controller.state as AppBarStateFailure).message;
-          return Text("message");
+          return Text(message);
         }
 
       default:
