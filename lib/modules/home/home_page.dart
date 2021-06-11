@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:split_it/modules/home/repositories/home_repository.dart';
+import 'package:split_it/modules/home/repositories/home_repository_mock.dart';
 import 'package:split_it/modules/home/widgets/app_bar_widget.dart';
 import 'package:split_it/modules/home/widgets/event_tile_widget.dart';
 import 'package:split_it/modules/login/models/user_model.dart';
@@ -10,17 +12,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final events = [
-    EventModel(
-        title: 'Churrasco', created: DateTime.now(), value: 400, people: 6),
-    EventModel(
-        title: 'Concurso', created: DateTime.now(), value: -200, people: 1),
-    EventModel(
-        title: 'Bitcoin', created: DateTime.now(), value: 500, people: 1),
-    EventModel(title: 'Pizza', created: DateTime.now(), value: 60, people: 3),
-    EventModel(
-        title: 'Supermercado', created: DateTime.now(), value: 100, people: 2),
-  ];
+  final events = <EventModel>[];
+  late HomeRepository repository;
+  void getEvents() async {
+    final response = await repository.getEvents();
+    events.addAll(response);
+    setState(() {});
+    print(events);
+  }
+
+  @override
+  void initState() {
+    repository = HomeRepositoryMock();
+    getEvents();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final UserModel user =
