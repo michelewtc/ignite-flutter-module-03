@@ -25,6 +25,16 @@ class HomeRepositoryMock extends HomeRepository {
           created: DateTime.now(),
           value: 100,
           people: 2),
+      EventModel(
+          title: 'Conta de Luz',
+          created: DateTime.now(),
+          value: -180,
+          people: 2),
+      EventModel(
+          title: 'Conta de Internet',
+          created: DateTime.now(),
+          value: -100,
+          people: 2),
     ];
   }
 }

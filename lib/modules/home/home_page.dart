@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:split_it/modules/home/home_controller.dart';
 import 'package:split_it/modules/home/home_state.dart';
-import 'package:split_it/modules/home/widgets/app_bar_widget.dart';
+import 'package:split_it/modules/home/widgets/app_bar/app_bar_widget.dart';
 import 'package:split_it/modules/home/widgets/event_tile_widget.dart';
 import 'package:split_it/modules/login/models/user_model.dart';
 
@@ -33,23 +33,25 @@ class _HomePageState extends State<HomePage> {
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  if (controller.state is HomeStateLoading) ...[
-                    CircularProgressIndicator(),
-                  ] else if (controller.state is HomeStateSuccess) ...[
-                    ...(controller.state as HomeStateSuccess)
-                        .events
-                        .map((e) => EventTileWidget(
-                              model: e,
-                            ))
-                        .toList()
-                  ] else if (controller.state is HomeStateFailure) ...[
-                    Text((controller.state as HomeStateFailure).message)
-                  ] else ...[
-                    Container()
-                  ]
-                ],
+              child: Center(
+                child: Column(
+                  children: [
+                    if (controller.state is HomeStateLoading) ...[
+                      CircularProgressIndicator(),
+                    ] else if (controller.state is HomeStateSuccess) ...[
+                      ...(controller.state as HomeStateSuccess)
+                          .events
+                          .map((e) => EventTileWidget(
+                                model: e,
+                              ))
+                          .toList()
+                    ] else if (controller.state is HomeStateFailure) ...[
+                      Text((controller.state as HomeStateFailure).message)
+                    ] else ...[
+                      Container()
+                    ]
+                  ],
+                ),
               ),
             )));
   }

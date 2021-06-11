@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:split_it/modules/home/home_state.dart';
 import 'package:split_it/modules/home/repositories/home_repository.dart';
 import 'package:split_it/modules/home/repositories/home_repository_mock.dart';
-import 'package:split_it/shared/models/event_model.dart';
 
 class HomeController {
   late HomeRepository repository;
