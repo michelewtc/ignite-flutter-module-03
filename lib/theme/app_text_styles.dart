@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:split_it/theme/app_theme.dart';
@@ -13,6 +14,9 @@ abstract class AppTextStyles {
   TextStyle get eventTileSubtitle;
   TextStyle get eventTileValue;
   TextStyle get eventTilePeople;
+  TextStyle get stepperIndicatorPrimary;
+  TextStyle get stepperIndicatorSecondary;
+  TextStyle get stepperNextButton;
 }
 
 class AppTextStylesDefault implements AppTextStyles {
@@ -83,5 +87,26 @@ class AppTextStylesDefault implements AppTextStyles {
         color: AppTheme.colors.eventTilePeople,
         fontSize: 12,
         fontWeight: FontWeight.w400,
+      );
+
+  @override
+  TextStyle get stepperIndicatorPrimary => GoogleFonts.roboto(
+        color: AppTheme.colors.stepperIndicatorPrimary,
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+      );
+
+  @override
+  TextStyle get stepperIndicatorSecondary => GoogleFonts.roboto(
+        color: AppTheme.colors.stepperIndicatorSecondary,
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      );
+
+  @override
+  TextStyle get stepperNextButton => GoogleFonts.inter(
+        color: AppTheme.colors.stepperNextButton,
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
       );
 }
