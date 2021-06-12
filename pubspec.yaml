@@ -21,6 +21,8 @@ dependencies:
   sign_in_with_apple: ^3.0.0
   #Facilitar os testes
   mocktail: ^0.1.4
+  #Facilitar os loadings
+  shimmer: ^2.0.0
 
 dev_dependencies:
   flutter_test:
