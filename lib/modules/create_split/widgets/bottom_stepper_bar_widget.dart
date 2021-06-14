@@ -5,9 +5,13 @@ import 'package:split_it/theme/app_theme.dart';
 class BottomStepperBarWidget extends StatelessWidget {
   final VoidCallback onTapCancel;
   final VoidCallback onTapNext;
-  const BottomStepperBarWidget(
-      {Key? key, required this.onTapNext, required this.onTapCancel})
-      : super(key: key);
+  final bool enabledButtons;
+  const BottomStepperBarWidget({
+    Key? key,
+    required this.onTapNext,
+    required this.onTapCancel,
+    this.enabledButtons = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +24,19 @@ class BottomStepperBarWidget extends StatelessWidget {
           // ),
           Row(
             children: [
-              StepperNextButtonWidget(label: "Cancelar", onTap: onTapCancel),
+              StepperNextButtonWidget(
+                  label: "Cancelar",
+                  enabled: enabledButtons,
+                  onTap: onTapCancel),
               Container(
                 width: 1,
                 height: 60,
                 color: AppTheme.colors.divider,
               ),
-              StepperNextButtonWidget(label: "Continuar", onTap: onTapNext),
+              StepperNextButtonWidget(
+                  label: "Continuar",
+                  enabled: enabledButtons,
+                  onTap: onTapNext),
             ],
           ),
         ],
