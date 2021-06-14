@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:split_it/modules/create_split/widgets/step_input_text_widget.dart';
+import 'package:split_it/modules/create_split/widgets/step_title_widget.dart';
 
 import 'package:split_it/theme/app_theme.dart';
 
@@ -18,43 +20,12 @@ class _StepOnePageState extends State<StepOnePage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text.rich(
-          TextSpan(
-              text: "Qual o nome \n",
-              style: AppTheme.textStyles.stepperTitle,
-              children: [
-                TextSpan(
-                  text: "do evento?",
-                  style: AppTheme.textStyles.stepperSubtitle,
-                ),
-              ]),
-          textAlign: TextAlign.center,
+        StepTitleWidget(
+          title: "Qual o nome \n",
+          subtitle: "do evento ?",
         ),
-        SizedBox(
-          height: 40,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 64),
-          child: TextField(
-            onChanged: widget.onChange,
-            textAlign: TextAlign.center,
-            style: AppTheme.textStyles.textField,
-            cursorColor: AppTheme.colors.backgroundSecondary,
-            decoration: InputDecoration(
-              hintText: "Ex: Churrasco",
-              hintStyle: AppTheme.textStyles.hintTextField,
-              border: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppTheme.colors.inputBorder),
-              ),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppTheme.colors.inputBorder),
-              ),
-              focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: AppTheme.colors.inputBorder),
-              ),
-            ),
-          ),
-        ),
+        StepInputTextWidget(
+            onChange: widget.onChange, hintText: "Ex: Churrasco")
       ],
     );
   }
