@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:split_it/modules/create_split/widgets/step_input_text_widget.dart';
 import 'package:split_it/modules/create_split/widgets/step_title_widget.dart';
 
-import 'package:split_it/theme/app_theme.dart';
-
 class StepOnePage extends StatefulWidget {
   final void Function(String value) onChange;
   const StepOnePage({

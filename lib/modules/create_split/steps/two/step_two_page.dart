@@ -26,7 +26,10 @@ class _StepTwoPageState extends State<StepTwoPage> {
         SizedBox(
           height: 35,
         ),
-        PersonTileWidget(name: "Michele Chan")
+        PersonTileWidget(name: "Michele Chan"),
+        PersonTileWidget(name: "Lucas"),
+        PersonTileWidget(name: "William"),
+        PersonTileWidget(name: "João")
       ],
     );
   }
