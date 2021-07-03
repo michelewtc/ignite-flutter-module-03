@@ -23,6 +23,9 @@ dependencies:
   mocktail: ^0.1.4
   #Facilitar os loadings
   shimmer: ^2.0.0
+  #Gerência de Estado 
+  mobx: ^2.0.1
+  flutter_mobx: ^2.0.0
 
 dev_dependencies:
   flutter_test:
