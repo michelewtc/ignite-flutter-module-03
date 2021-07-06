@@ -9,19 +9,23 @@ class LoginController {
   set state(LoginState state) => _state.value = state;
 
   final LoginService service;
-  late Action googleSignIn;
-  LoginController({required this.service}) {
-    googleSignIn = Action(_googleSignIn);
+
+  LoginController({required this.service});
+
+  void update(LoginState state) {
+    var action = Action(() {
+      this.state = state;
+    });
+    action();
   }
 
-  Future<void> _googleSignIn() async {
+  Future<void> googleSignIn() async {
     try {
-      state = LoginStateLoading();
-
+      update(LoginStateLoading());
       final user = await service.googleSignIn();
-      state = LoginStateSuccess(user: user);
+      update(LoginStateSuccess(user: user));
     } catch (error) {
-      state = LoginStateFailure(message: error.toString());
+      update(LoginStateFailure(message: error.toString()));
     }
   }
 }
